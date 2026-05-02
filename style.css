@@ -1,0 +1,286 @@
+:root {
+    --neon: #00ff88;
+    --bg: #050505;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* { 
+    scroll-behavior: smooth; 
+}
+
+body {
+    background-color: var(--bg);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ========================================= */
+/* UTILS & GLOBAL */
+/* ========================================= */
+a { text-decoration: none; }
+
+html, body {
+    cursor: none; /* Sembunyikan kursor asli */
+}
+
+a, button, .btn, .glass-card {
+    cursor: none !important;
+}
+
+/* ========================================= */
+/* GLASS EFFECT & CARDS */
+/* ========================================= */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 2.5rem;
+    transition: 0.4s;
+}
+
+.glass-card:hover {
+    border-color: var(--neon);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2), 
+                0 0 40px rgba(0, 255, 136, 0.1);
+    transform: translateY(-8px);
+}
+
+/* ========================================= */
+/* TYPOGRAPHY & NEON */
+/* ========================================= */
+.neon-text {
+    color: var(--neon);
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+section { padding: 80px 0; }
+
+/* ========================================= */
+/* BUTTONS */
+/* ========================================= */
+.btn-neon {
+    background: transparent;
+    border: 2px solid var(--neon);
+    color: var(--neon);
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 10px 25px;
+    transition: 0.3s;
+}
+
+.btn-neon:hover {
+    background: var(--neon);
+    color: #000;
+    box-shadow: 0 0 25px var(--neon);
+}
+
+.btn-outline-neon {
+    background: transparent;
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 10px 25px;
+    transition: 0.3s;
+}
+
+.btn-outline-neon:hover {
+    border-color: var(--neon);
+    color: var(--neon);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+    transform: scale(1.05);
+}
+
+/* ========================================= */
+/* PROFILE IMAGE & INFO */
+/* ========================================= */
+.neon-image-container {
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+    background: linear-gradient(45deg, var(--neon), transparent);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: 0.5s;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--neon);
+}
+
+.quick-info {
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}
+
+.quick-info strong { color: var(--neon); }
+
+.quick-info span {
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.quick-info .col-6:hover span {
+    transform: scale(1.2) rotate(10deg);
+    text-shadow: 0 0 10px var(--neon);
+}
+
+/* ========================================= */
+/* MOTTO BOX */
+/* ========================================= */
+.motto-box {
+    border-left: 3px solid var(--neon);
+    padding: 15px 20px;
+    margin-top: 30px;
+    background: rgba(0, 255, 136, 0.05);
+    border-radius: 0 15px 15px 0;
+}
+
+.small-title {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.motto-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+.motto-text .highlight {
+    color: var(--neon);
+    font-weight: 600;
+}
+
+/* ========================================= */
+/* NEON CURSOR & PROGRESS BAR */
+/* ========================================= */
+.progress-container {
+    position: fixed;
+    top: 0;
+    z-index: 2001;
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.05);
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--neon);
+    width: 0%;
+    box-shadow: 0 0 10px var(--neon);
+}
+
+.cursor-dot, .cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    border-radius: 50%;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--neon);
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--neon);
+}
+
+.cursor-grow {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: rgba(0, 255, 136, 0.1);
+}
+
+/* ========================================= */
+/* PARTICLES & SCROLL TOP */
+/* ========================================= */
+#particles-js {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.btn-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--glass);
+    border: 1px solid var(--neon);
+    border-radius: 50%;
+    color: var(--neon);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(10px);
+}
+
+/* ========================================= */
+/* RESPONSIVE (MOBILE) */
+/* ========================================= */
+@media (max-width: 768px) {
+    /* Sembunyikan kursor di HP */
+    .cursor-dot, .cursor-outline { display: none !important; }
+    html, body { cursor: auto; }
+
+    .hero h1 { font-size: 2.5rem !important; }
+    section { padding: 50px 0; }
+    
+    .glass-card { padding: 1.5rem; }
+    
+    .quick-info .col-6 { 
+        width: 100%; 
+        margin-bottom: 10px;
+    }
+
+    .profile-img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .btn-neon, .btn-outline-neon {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Animasi Pulse Badge */
+.badge { animation: pulse-border 2s infinite; }
+@keyframes pulse-border {
+    0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+}
